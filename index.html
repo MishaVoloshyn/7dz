@@ -1,11 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <!-- Создать объект, описывающий автомобиль (производитель,
+    модель, год выпуска, средняя скорость), и следующие функции
+    для работы с этим объектом.
+    1. Функция для вывода на экран информации об автомобиле.
+    2. Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
+    Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час. -->
+
+    <!-- <script>
+        function Car(manufacturer, model, year, speed) {
+            this.manufacturer = manufacturer;
+            this.model = model;
+            this.year = year;
+            this.speed = speed;
+        }
+
+        Car.prototype.printInfo = function () {
+            console.log("Производитель: " + this.manufacturer);
+            console.log("Модель: " + this.model);
+            console.log("Год выпуска: " + this.year);
+            console.log("Средняя скорость: " + this.speed + " км/ч");
+        };
+
+        Car.prototype.calculateTime = function (distance) {
+            let time = distance / this.speed;
+            let breaks = Math.floor(time / 4);
+            time += breaks;
+            return time;
+        };
+
+        const car = new Car("Toyota", "Camry", 2023, 120);
+        car.printInfo();
+        console.log(car.calculateTime(500));
+    </script> -->
+
+
+    <!-- Задание 2
+    Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим
+    объектом.
+    1. Функция сложения 2-х объектов-дробей.
+    2. Функция вычитания 2-х объектов-дробей.
+    3. Функция умножения 2-х объектов-дробей.
+    4. Функция деления 2-х объектов-дробей.
+    5. Функция сокращения объекта-дроби -->
+
+
+    <!-- <script>
+        function Fraction(numerator, denominator) {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+
+        Fraction.prototype.add = function (otherFraction) {
+            return new Fraction(this.numerator * otherFraction.denominator + otherFraction.numerator * this.denominator, this.denominator * otherFraction.denominator);
+        };
+
+        Fraction.prototype.subtract = function (otherFraction) {
+            return new Fraction(this.numerator * otherFraction.denominator - otherFraction.numerator * this.denominator, this.denominator * otherFraction.denominator);
+        };
+
+        Fraction.prototype.multiply = function (otherFraction) {
+            return new Fraction(this.numerator * otherFraction.numerator, this.denominator * otherFraction.denominator);
+        };
+
+        Fraction.prototype.divide = function (otherFraction) {
+            return new Fraction(this.numerator * otherFraction.denominator, this.denominator * otherFraction.numerator);
+        };
+
+        Fraction.prototype.reduce = function () {
+            let gcd = Math.gcd(this.numerator, this.denominator);
+            return new Fraction(this.numerator / gcd, this.denominator / gcd);
+        };
+
+
+        const fraction1 = new Fraction(1, 2);
+        const fraction2 = new Fraction(3, 4);
+
+        console.log(fraction1.add(fraction2));
+        console.log(fraction1.subtract(fraction2));
+        console.log(fraction1.multiply(fraction2));
+        console.log(fraction1.divide(fraction2));
+        console.log(fraction1.reduce());
+
+
+    </script> -->
+
+
+
+    <!-- Создать объект, описывающий время (часы, минуты, секунды), и следующие функции для работы с этим объектом.
+        1. Функция вывода времени на экран.
+        2. Функция изменения времени на переданное количество
+        секунд.
+        3. Функция изменения времени на переданное количество
+        минут.
+        4. Функция изменения времени на переданное количество
+        часов.
+        Учтите, что в последних 3-х функциях, при изменении одной
+        части времени, может измениться и другая. Например: если ко
+        времени «20:30:45» добавить 30 секунд, то должно получиться
+        «20:31:15», а не «20:30:75». -->
+
+
+    <script>
+        function Time(hours, minutes, seconds) {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+        }
+
+        Time.prototype.print = function () {
+            console.log(this.hours + ":" + this.minutes + ":" + this.seconds);
+        };
+
+        Time.prototype.addSeconds = function (seconds) {
+            this.seconds += seconds;
+            if (this.seconds >= 60) {
+                this.minutes++;
+                this.seconds -= 60;
+            }
+            if (this.minutes >= 60) {
+                this.hours++;
+                this.minutes -= 60;
+            }
+        };
+
+        Time.prototype.addMinutes = function (minutes) {
+            this.minutes += minutes;
+            if (this.minutes >= 60) {
+                this.hours++;
+                this.minutes -= 60;
+            }
+        };
+
+        Time.prototype.addHours = function (hours) {
+            this.hours += hours;
+            if (this.hours >= 24) {
+                this.hours -= 24;
+            }
+        };
+
+        const time = new Time(20, 30, 45);
+
+        time.print(); 
+
+        time.addSeconds(30);
+
+        time.print(); 
+
+        time.addMinutes(15);
+
+        time.print();
+
+        time.addHours(1);
+
+        time.print();
+
+
+    </script>
 </body>
+
 </html>
